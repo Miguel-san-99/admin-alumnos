@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <div class="row">
-            <h1>Editar alumno # {{ $equipo->id }}</h1>
+            <h1>Editar alumno # {{ $alumno->id }}</h1>
 
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -22,16 +22,34 @@
                 </div>
             @endif
 
-            <form action="{{ route('equipos.update', $equipo) }}" method="POST">
+            <form action="{{ route('alumnos.update', $alumno) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
-                    <label for="mane">Nombre</label>
-                    <input type="text" name="name" value="{{ $equipo->name }}">
+                    <label for="mane" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" name="name" value="{{ $alumno->name }}">
+                    @error('name')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                    <br>
+                    <label for="email" class="form-label">Correo</label>
+                    <input type="email" class="form-control" name="email" value="{{ $alumno->email }}">
+                    @error('email')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                    <br>
+                    <label for="fecha_nac" class="form-label">Fecha de nacimiento</label>
+                    <input type="date" class="form-control" name="fecha_nac" value="{{ $alumno->fecha_nac }}">
+                    @error('fecha_nac')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                    <br>
+                    <label for="city" class="form-label"> Ciudad </label>
+                    <input type="text" class="form-control" name="city" value="{{ $alumno->city }}">
+                    @error('city')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
-                @error('name')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
                 <input class="form-control input-color " type="submit" value="Enviar">
             </form>
         </div>

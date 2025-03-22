@@ -7,7 +7,7 @@
     <title>Lista</title>
 </head>
 <body>
-    <h1>Alumnos</h1>
+    <h1>Listado de alumnos</h1>
 
     <table border="1">
         <tr>

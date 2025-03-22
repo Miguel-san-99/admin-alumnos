@@ -33,7 +33,7 @@ class AlumnoController extends Controller
         $request->validate([
             'name' => 'required|min:3|max:255',
             'email' => ['required', 'email', 'max:255'],
-            'city' => ['required', 'min:8']
+            'city' => ['required', 'min:3']
         ]);
         $alumno = new Alumno();
         $alumno->name = $request->name;
